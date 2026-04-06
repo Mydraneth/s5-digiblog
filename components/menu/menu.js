@@ -1,4 +1,3 @@
-import { menuElemanlari } from "./../../resources.js";
 
 /*
 Adım 1: MenuBuilder component fonksiyonu yazmak
@@ -28,3 +27,18 @@ MenuBuilder fonksiyonu ve resouces.js dosyasından gelen menuElemanlari arrayini
 Not 1: İlk 3 adım MenuBuilder içinde yapılmalı.
 Not 2: MenuBuilder fonksiyonunda oluşturduklarınızı return etmeyi unutmayın.
 */
+import { menuElemanlari } from "../../resources";
+
+function MenuBuilder(menuElemanlari) {
+	const menuDiv = document.createElement("div");
+	menuDiv.classList.add("menu");
+	const menuUl = document.createElement("ul");
+	menuDiv.appendChild(menuUl);
+	menuElemanlari.forEach(eleman => {
+		const menuElemani = document.createElement("li");
+		menuElemani.textContent = eleman;
+		menuUl.appendChild(menuElemani);
+	});	
+}
+
+MenuBuilder(menuElemanlari);
