@@ -1,5 +1,4 @@
 // Haberleri üretmek için aşağıdaki newsData objesini kullanacağız. Önce inceleyin.
-import { newsData } from "./../../resources.js";
 
 const sampleNewsItem = {
   baslik: "örnek başlık",
@@ -21,8 +20,44 @@ Yazacağınız NewsBuilder fonksiyonu, yukarıdaki sampleNewsItem yapısındaki 
 
   <button class="expandButton">+</button>
 </div>
+*/
+
+function NewsBuilder(newsObj) {
+  const articleDiv = document.createElement("div");
+  articleDiv.classList.add("article");
+
+  const header = document.createElement("h2");
+  header.textContent = newsObj.baslik;
+
+  const dateP = document.createElement("p");
+  dateP.classList.add("date");
+  dateP.textContent = newsObj.tarih;
+
+  const p1 = document.createElement("p");
+  p1.textContent = newsObj.ilkParagraf;
+
+  const p2 = document.createElement("p");
+  p2.textContent = newsObj.ikinciParagraf;
+
+  const p3 = document.createElement("p");
+  p3.textContent = newsObj.ucuncuParagraf;
+
+  const button = document.createElement("button");
+  button.classList.add("expandButton");
+  button.textContent = "+";
+
+  articleDiv.appendChild(header);
+  articleDiv.appendChild(dateP);
+  articleDiv.appendChild(p1);
+  articleDiv.appendChild(p2);
+  articleDiv.appendChild(p3);
+  articleDiv.appendChild(button);
+
+  return articleDiv;
+}
 
 
+/*
 Adım 2:
 Oluşturulan expandButton classına sahip elemana tıklandığında, içinde bulunduğu article classına sahip elemanda isOpen classı yoksa eklemeli, varsa çıkarmalı.
 

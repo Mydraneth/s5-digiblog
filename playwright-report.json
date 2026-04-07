@@ -1,76 +1,36 @@
 {
   "stats": {
-    "expected": 1,
-    "unexpected": 10,
+    "expected": 0,
+    "unexpected": 3,
     "skipped": 0,
     "flaky": 0,
-    "duration": 10335
+    "duration": 3994
   },
   "tests": [
     {
       "title": "article sayısı doğru mu?",
       "status": "failed",
-      "duration": 590
+      "duration": 549
     },
     {
       "title": "her article içinde gerekli elementler bulunuyor mu?",
       "status": "failed",
-      "duration": 521
+      "duration": 492
     },
     {
       "title": "article başlık ve tarihleri doğru render ediliyor mu?",
       "status": "failed",
-      "duration": 581
+      "duration": 558
     },
     {
       "title": "expandButton tıklanınca ilgili article'a isOpen classı ekleniyor mu?",
       "status": "timedOut",
-      "duration": 2068
+      "duration": 2026
     },
     {
       "title": "bir article'da isOpen classı varken expandButton'a tıklanınca isOpen classı kaldırılıyor mu?",
-      "status": "timedOut",
-      "duration": 2058
-    },
-    {
-      "title": "expandButton textContent olarak '+' içeriyor mu?",
-      "status": "failed",
-      "duration": 539
-    },
-    {
-      "title": "menu oluşturulmuş ve header içinde bulunuyor mu?",
-      "status": "failed",
-      "duration": 661
-    },
-    {
-      "title": "menu içinde ul ve doğru sayıda li var mı?",
-      "status": "failed",
-      "duration": 633
-    },
-    {
-      "title": "li içerikleri menuElemanlari ile eşleşiyor mu?",
-      "status": "failed",
-      "duration": 639
-    },
-    {
-      "title": "menu-button'a tıklanınca isOpen classı ekleniyor mu?",
-      "status": "failed",
-      "duration": 697
-    },
-    {
-      "title": "menu-button'a tekrar tıklanınca isOpen classı kaldırılıyor mu?",
-      "status": "failed",
-      "duration": 672
-    },
-    {
-      "title": "ilk açılışta menu isOpen classı içermiyor olmalı",
-      "status": "failed",
-      "duration": 669
-    },
-    {
-      "title": "index.html içeriği değişmemiş olmalı",
-      "status": "passed",
-      "duration": 8
+      "status": "interrupted",
+      "duration": 370
     }
   ]
 }
