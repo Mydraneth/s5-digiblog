@@ -1,36 +1,26 @@
 {
   "stats": {
     "expected": 0,
-    "unexpected": 3,
+    "unexpected": 2,
     "skipped": 0,
     "flaky": 0,
-    "duration": 3994
+    "duration": 1866
   },
   "tests": [
     {
       "title": "article sayısı doğru mu?",
       "status": "failed",
-      "duration": 549
+      "duration": 881
     },
     {
       "title": "her article içinde gerekli elementler bulunuyor mu?",
       "status": "failed",
-      "duration": 492
+      "duration": 779
     },
     {
       "title": "article başlık ve tarihleri doğru render ediliyor mu?",
-      "status": "failed",
-      "duration": 558
-    },
-    {
-      "title": "expandButton tıklanınca ilgili article'a isOpen classı ekleniyor mu?",
-      "status": "timedOut",
-      "duration": 2026
-    },
-    {
-      "title": "bir article'da isOpen classı varken expandButton'a tıklanınca isOpen classı kaldırılıyor mu?",
       "status": "interrupted",
-      "duration": 370
+      "duration": 207
     }
   ]
 }

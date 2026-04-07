@@ -1,3 +1,4 @@
+import { newsData } from "../../resources";
 // Haberleri üretmek için aşağıdaki newsData objesini kullanacağız. Önce inceleyin.
 
 const sampleNewsItem = {
@@ -45,6 +46,9 @@ function NewsBuilder(newsObj) {
   const button = document.createElement("button");
   button.classList.add("expandButton");
   button.textContent = "+";
+  button.addEventListener("click", () => {
+ 	 articleDiv.classList.toggle("isOpen");
+	});
 
   articleDiv.appendChild(header);
   articleDiv.appendChild(dateP);
@@ -67,7 +71,14 @@ newsData, sampleNewsItem yapısına benzeyen objelerden oluşan bir array ve say
 newsData'nın her bir elemanını NewsBuilder ile kullanmak için bir döngü yazın. Döngü her çalıştığında:
 - o anki eleman ve NewsBuilder kullanılarak içerik hazırlanmalı,
 - hazırlanan içerik, index.html'de bulunan articleList classına sahip elemanın içine yerleştirilmeli.
+*/
 
+const articleList = document.querySelector(".articleList");
+newsData.forEach((news) => {
+  articleList.appendChild(NewsBuilder(news));
+});
+
+/*
 
 Not 1: İlk 2 adım NewsBuilder içinde yapılmalı.
 Not 2: NewsBuilder fonksiyonunda oluşturduklarınızı return etmeyi unutmayın.

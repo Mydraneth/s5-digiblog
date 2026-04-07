@@ -1,9 +1,9 @@
 import { expect, test } from "@playwright/test";
-import { menuElemanlari, newsData } from "./../resources";
+import crypto from "crypto";
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
-import crypto from "crypto";
+import { menuElemanlari, newsData } from "./../resources";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 function getNormalizedHtmlHash() {
@@ -27,7 +27,7 @@ test.afterAll(async () => {
 });
 
 test("article sayısı doğru mu?", async ({ page }) => {
-  await page.goto("http://localhost:3003");
+  await page.goto("http://localhost:5500");
 
   const articles = await page.locator(".articleList > .article");
   await expect(articles).toHaveCount(newsData.length);
@@ -35,7 +35,7 @@ test("article sayısı doğru mu?", async ({ page }) => {
 });
 
 test("her article içinde gerekli elementler bulunuyor mu?", async ({ page }) => {
-  await page.goto("http://localhost:3003");
+  await page.goto("http://localhost:5500");
 
   const articles = await page.locator(".articleList > .article");
   const count = await articles.count();
@@ -53,7 +53,7 @@ test("her article içinde gerekli elementler bulunuyor mu?", async ({ page }) =>
 });
 
 test("article başlık ve tarihleri doğru render ediliyor mu?", async ({ page }) => {
-  await page.goto("http://localhost:3003");
+  await page.goto("http://localhost:5500");
 
   const firstArticle = page.locator(".articleList > .article").first();
   await expect(firstArticle.locator("h2")).toHaveText(newsData[0].baslik);
@@ -62,7 +62,7 @@ test("article başlık ve tarihleri doğru render ediliyor mu?", async ({ page }
 });
 
 test("expandButton tıklanınca ilgili article'a isOpen classı ekleniyor mu?", async ({ page }) => {
-  await page.goto("http://localhost:3003");
+  await page.goto("http://localhost:5500");
 
   const firstArticle = page.locator(".articleList > .article").first();
   const button = firstArticle.locator("button.expandButton");
@@ -73,7 +73,7 @@ test("expandButton tıklanınca ilgili article'a isOpen classı ekleniyor mu?", 
 });
 
 test("bir article'da isOpen classı varken expandButton'a tıklanınca isOpen classı kaldırılıyor mu?", async ({ page }) => {
-  await page.goto("http://localhost:3003");
+  await page.goto("http://localhost:5500");
 
   const firstArticle = page.locator(".articleList > .article").first();
   const button = firstArticle.locator("button.expandButton");
@@ -86,7 +86,7 @@ test("bir article'da isOpen classı varken expandButton'a tıklanınca isOpen cl
 });
 
 test("expandButton textContent olarak '+' içeriyor mu?", async ({ page }) => {
-  await page.goto("http://localhost:3003");
+  await page.goto("http://localhost:5500");
 
   const buttons = page.locator(".articleList .expandButton");
   const count = await buttons.count();
@@ -99,7 +99,7 @@ test("expandButton textContent olarak '+' içeriyor mu?", async ({ page }) => {
 });
 
 test("menu oluşturulmuş ve header içinde bulunuyor mu?", async ({ page }) => {
-  await page.goto("http://localhost:3003");
+  await page.goto("http://localhost:5500");
 
   const menu = page.locator(".header .menu");
   await expect(menu).toHaveCount(1);
@@ -107,7 +107,7 @@ test("menu oluşturulmuş ve header içinde bulunuyor mu?", async ({ page }) => 
 });
 
 test("menu içinde ul ve doğru sayıda li var mı?", async ({ page }) => {
-  await page.goto("http://localhost:3003");
+  await page.goto("http://localhost:5500");
 
   const ul = page.locator(".menu ul");
   await expect(ul).toHaveCount(1);
@@ -118,7 +118,7 @@ test("menu içinde ul ve doğru sayıda li var mı?", async ({ page }) => {
 });
 
 test("li içerikleri menuElemanlari ile eşleşiyor mu?", async ({ page }) => {
-  await page.goto("http://localhost:3003");
+  await page.goto("http://localhost:5500");
 
   const liItems = page.locator(".menu ul li");
 
@@ -129,7 +129,7 @@ test("li içerikleri menuElemanlari ile eşleşiyor mu?", async ({ page }) => {
 });
 
 test("menu-button'a tıklanınca isOpen classı ekleniyor mu?", async ({ page }) => {
-  await page.goto("http://localhost:3003");
+  await page.goto("http://localhost:5500");
 
   const menuButton = page.locator(".menu-button");
   const menu = page.locator(".menu");
@@ -140,7 +140,7 @@ test("menu-button'a tıklanınca isOpen classı ekleniyor mu?", async ({ page })
 });
 
 test("menu-button'a tekrar tıklanınca isOpen classı kaldırılıyor mu?", async ({ page }) => {
-  await page.goto("http://localhost:3003");
+  await page.goto("http://localhost:5500");
 
   const menuButton = page.locator(".menu-button");
   const menu = page.locator(".menu");
@@ -153,7 +153,7 @@ test("menu-button'a tekrar tıklanınca isOpen classı kaldırılıyor mu?", asy
 });
 
 test("ilk açılışta menu isOpen classı içermiyor olmalı", async ({ page }) => {
-  await page.goto("http://localhost:3003");
+  await page.goto("http://localhost:5500");
 
   const menu = page.locator(".menu");
   await expect(menu).not.toHaveClass(/isOpen/);
